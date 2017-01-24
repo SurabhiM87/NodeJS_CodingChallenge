@@ -1,0 +1,14 @@
+{
+  "name": "node-middleware",
+  "version": "1.0.0",
+  "description": "node server for single page app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Surabhi Mendiratta",
+  "license": "ISC",
+  "dependencies": {
+      "express": "^4.14.0"
+  }
+}

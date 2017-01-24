@@ -1,0 +1,191 @@
+@import "bourbon";
+@import "neat";
+
+//mixins
+@mixin omega-reset($nth) {
+    &:nth-child(#{$nth}) { margin-right: flex-gutter(); }
+    &:nth-child(#{$nth}+1) { clear: none }
+}
+
+//colors
+$color-background: #FFA500;
+$color-background-searchArea: #4f5b69;
+$color-background-searchBox: #2b303b;
+$color-background-searchBox-onFocus: #ffffff;
+$color-background-searchButton: #232833;
+$color-text-searchButton: #4f5b66;
+$color-text-searchBox:#63717f;
+$color-text-image-description:#4f5b69;
+$color-image-border: #ffffff;
+
+//variables
+$body-line-height: golden-ratio(1em, 1) !default;
+
+.outerContainer{
+    @include margin(20px);
+    background-color: $color-background;
+    @include padding(10px);
+    overflow:auto;
+    height: auto;
+
+    @include outer-container(12);
+        &.searchField &.celebGrid{
+            border: dotted;
+            @include span-columns(6);
+        }
+}
+.searchField{
+    text-align:center;
+    background-color:$color-background-searchArea;
+    height: 150px;
+    margin-bottom: 20px;
+    overflow: auto;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    input{
+        @include margin(null auto null auto);
+        width: 400px;
+
+    }
+    p{
+        display: none;
+        color: red;
+        font-size: 1em;
+    }
+    input#searchCeleb{
+        margin-top: 50px;
+        height: 50px;
+        background: $color-background-searchBox;
+        border: none;
+        font-size: 10pt;
+        color: $color-text-searchBox;
+        padding-left: 45px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        @include transition(background .55s ease);
+    }
+    input#searchCeleb:hover, input#searchCeleb:focus, input#searchCeleb:active{
+        outline:none;
+        background: $color-background-searchBox-onFocus;
+    }
+
+    #searchBtn.icon{
+        -webkit-border-top-right-radius: 5px;
+        -webkit-border-bottom-right-radius: 5px;
+        -moz-border-radius-topright: 5px;
+        -moz-border-radius-bottomright: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+
+        @include size(50px 48px);
+        @include transition(all .55s ease);
+        border: none;
+        background: $color-background-searchButton;
+        color: $color-text-searchButton;
+        font-size: 10pt;
+    }
+}
+
+.searchField:hover #searchBtn.icon, .searchField:active #searchBtn.icon, .searchField:focus #searchBtn.icon{
+    outline: none;
+    margin-left:0px;
+    background: white;
+    cursor: pointer;
+}
+.celebGrid{
+    @include outer-container(12);
+    overflow:auto;
+    height: auto;
+    font-size: 15pt;
+    color: $color-text-image-description;
+
+    div.box{
+        text-align: center;
+        font-size: 0.78em;
+        height: auto;
+        visibility: visible;
+        @include transition(width 1s ease-in-out, left 1.5s ease-in-out);
+        @include span-columns(4);
+        @include omega(3n);
+
+        img p{
+            @include margin(auto);
+            display: block;
+        }
+        img{
+            @include border-color($color-image-border);
+            @include border-width(5px);
+            border-style: solid;
+        }
+    }
+}
+
+@media screen and (max-width: 868px) {
+    .celebGrid{
+        @include outer-container(12);
+        overflow:auto;
+        height: auto;
+        div.box{
+            text-align: center;
+            font-size: 0.78em;
+            height: 350px;
+            @include omega-reset(2n);
+            @include span-columns(4);
+            @include omega(3n);
+            img{
+                width: 200px;
+            }
+        }
+    }
+}
+@media screen and (max-width: 768px) {
+    .celebGrid{
+        @include outer-container();
+        div.box{
+            height: auto;
+            @include omega-reset(3n);
+            @include span-columns(6);
+            @include omega(2n);
+            img {
+                width: 250px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 568px) {
+    .searchField input#searchCeleb{
+        width: 300px;
+    }
+    .celebGrid{
+        @include outer-container();
+        div.box{
+            height: auto;
+            @include omega-reset(3n);
+            @include span-columns(6);
+            @include omega(2n);
+            img {
+                width: 200px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 468px) {
+    .searchField input#searchCeleb{
+        width: 200px;
+    }
+    .celebGrid{
+        @include outer-container();
+        div.box{
+            @include omega-reset(3n);
+            @include span-columns(6);
+            @include omega(2n);
+            img {
+                width: 180px;
+            }
+        }
+    }
+}

@@ -1,0 +1,60 @@
+Requirement: Create a Single page application. From a given API, fetch the first 6 images of the searched artist and show them on a 3 X 2 grid on the front end. 
+
+This challenge consisted of 2 parts as follows:
+
+1. Front end:
+
+- Create a responsive front end
+- The images should arrange in a 3 X 2 grid at screen width greater than 769 px
+- The images should arrange in a 2 X 3 grid at screen width less than 768 px
+- Change the size of images as the size of the screen changes. The size should never be greater than 250. Make the transition smooth.
+
+- Use the following default data:
+
+Image: http://iscale.iheart.com/catalog/artist/744880?ops=fit(250,0)
+Description: Feat. August Alsina, Jeremih and more
+
+
+Image: http://iscale.iheart.com/catalog/artist/57706?ops=fit(250,0)
+Description: Feat. Ariana Grande, Demi Lovato and more
+
+
+Image: http://iscale.iheart.com/catalog/artist/30005067?ops=fit(250,0)
+Description: Feat. Nelly, Iyaz, Wiz Khalifa and more
+
+
+Image: http://iscale.iheart.com/catalog/artist/44368?ops=fit(250,0)
+Description: Feat. Shawn Mendes, One Direction and more
+
+
+Image: http://iscale.iheart.com/catalog/artist/43557?ops=fit(250,0)
+Description: Feat. Iyaz, Dillon Francis & DJ Snake and more
+
+
+Image: http://iscale.iheart.com/catalog/artist/33221?ops=fit(250,0)
+Description: Feat. Meghan Trainor, Katy Perry and more
+
+
+
+2. Server:
+
+- Have a search box on the front end, where the user can enter the name of the artist. 
+- Create a server in Node JS which fetches the data of from the following Api using the artist name entered in the search box:
+
+http://api-3283.iheart.com/api/v1/catalog/searchAll?keywords=taylor&queryTrack=false&queryArtist=true&queryFeaturedStation=false&queryTalkShow=false&queryTalkTheme=false&queryKeyword=false&countryCode=US
+
+Replace the keyword “taylor” with name of the artist entered in the search box
+
+- Use only the top 6 results from the data fetched
+- Get the artist id from the JSON data fetched and add it in the image URL:
+
+http://iscale.iheart.com/catalog/artist/"+artistId + "?ops=fit(250,0)
+
+- Use this image url to display images on the front end along with the name of the artist
+
+
+
+
+use the following URL for reference
+
+https://www.iheart.com/genre/top-40-pop-16/
